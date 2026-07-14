@@ -1,11 +1,52 @@
+"use client";
+
 import Link from "next/link";
 import { ScrollReveal, StaggerReveal } from "@/components/ui/scroll-reveal";
+import { useState } from "react";
 
 export default function TaxPage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleDrawer = () => setIsMenuOpen(!isMenuOpen);
+
   return (
     <>
-      {/* ── Navbar ── */}
-      <nav className="absolute top-0 left-0 right-0 z-50 bg-primary-container/95 nav-glass border-b border-white/10">
+      {/* ── Mobile TopAppBar & Drawer (Stitch styling) ── */}
+      <div className="md:hidden">
+        <nav className="fixed top-0 w-full z-50 bg-surface shadow-sm flex items-center justify-between px-margin-mobile h-16 w-full">
+          <div className="flex items-center gap-4">
+            <button className="text-primary active:scale-95 duration-200" onClick={toggleDrawer}>
+              <span className="material-symbols-outlined">menu</span>
+            </button>
+            <h1 className="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">LimoriaTech</h1>
+          </div>
+        </nav>
+
+        <div 
+          className={`fixed inset-0 bg-black/50 z-[55] transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 block' : 'opacity-0 hidden pointer-events-none'}`}
+          onClick={toggleDrawer}
+        ></div>
+        <aside 
+          className={`fixed inset-y-0 left-0 z-[60] flex flex-col h-full w-72 rounded-r-xl bg-surface-container-low shadow-lg transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
+        >
+          <div className="p-margin-mobile">
+            <h2 className="font-headline-md text-headline-md font-bold text-on-surface mb-6">Limoria Menu</h2>
+            <div className="flex flex-col gap-2">
+              <Link onClick={toggleDrawer} className="bg-secondary-container text-on-secondary-container rounded-full px-4 py-3 font-label-md text-label-md flex items-center gap-3" href="/tax">
+                <span className="material-symbols-outlined">account_balance</span> Tax
+              </Link>
+              <Link onClick={toggleDrawer} className="text-on-surface-variant px-4 py-3 font-label-md text-label-md flex items-center gap-3 hover:bg-surface-container-high transition-all" href="/finance">
+                <span className="material-symbols-outlined">payments</span> Finance
+              </Link>
+              <Link onClick={toggleDrawer} className="text-on-surface-variant px-4 py-3 font-label-md text-label-md flex items-center gap-3 hover:bg-surface-container-high transition-all" href="/it-systems">
+                <span className="material-symbols-outlined">memory</span> IT Systems
+              </Link>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      {/* ── Desktop Navbar ── */}
+      <nav className="hidden md:block absolute top-0 left-0 right-0 z-50 bg-primary-container/95 nav-glass border-b border-white/10">
         <div className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
           <Link href="/" className="text-headline-md font-headline-md font-bold text-white hover:opacity-90 transition-opacity">
             LimoriaTech
@@ -24,20 +65,20 @@ export default function TaxPage() {
       </nav>
 
       {/* ── Hero Section ── */}
-      <header className="relative pt-28 md:pt-36 pb-20 md:pb-28 px-margin-mobile md:px-margin-desktop overflow-hidden bg-surface-container-low border-b border-outline-variant">
+      <header className="relative pt-8 md:pt-36 pb-12 md:pb-28 px-margin-mobile md:px-margin-desktop md:overflow-hidden bg-surface-container-low border-b border-outline-variant mt-16 md:mt-0">
         <div className="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter relative z-10">
           <ScrollReveal animation="fade-right" duration={800} className="md:col-span-7 flex flex-col justify-center">
             <span className="text-primary font-label-md text-label-md uppercase tracking-widest mb-4">Layanan Perpajakan Komprehensif</span>
-            <h1 className="font-display-lg text-headline-lg text-on-surface mb-6">Navigasi Pajak dengan Presisi Tinggi.</h1>
+            <h1 className="font-display-lg text-[24px] md:text-headline-lg text-on-surface mb-4 md:mb-6">Navigasi Pajak dengan Presisi Tinggi.</h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-xl">
               Di LimoriaTech, kami memahami kompleksitas regulasi perpajakan. Layanan pajak kami dirancang untuk meminimalkan risiko dan memaksimalkan efisiensi, memastikan kepatuhan penuh bagi perusahaan Anda.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a href="https://wa.me/6285214120235?text=Halo%20LimoriaTech%2C%20saya%20ingin%20berkonsultasi%20mengenai%20perencanaan%20pajak%2C%20kepatuhan%20SPT%2C%20atau%20sengketa%20pajak%20perusahaan%20kami." target="_blank" rel="noopener noreferrer" className="bg-primary-container text-on-primary font-label-md text-label-md px-8 py-3 rounded-lg hover:bg-primary transition-colors duration-200 flex items-center gap-2 active:scale-[0.98]">
+              <a href="https://wa.me/6285214120235?text=Halo%20LimoriaTech%2C%20saya%20ingin%20berkonsultasi%20mengenai%20perencanaan%20pajak%2C%20kepatuhan%20SPT%2C%20atau%20sengketa%20pajak%20perusahaan%20kami." target="_blank" rel="noopener noreferrer" className="bg-primary-container text-white font-label-md text-label-md px-6 md:px-8 py-3 rounded-lg hover:bg-primary transition-colors duration-200 flex items-center gap-2 active:scale-[0.98] w-full md:w-auto justify-center">
                 Konsultasi via WhatsApp
                 <span className="material-symbols-outlined text-[18px]">chat</span>
               </a>
-              <button className="border border-secondary text-secondary font-label-md text-label-md px-8 py-3 rounded-lg hover:bg-surface-variant transition-colors duration-200">
+              <button className="border border-secondary text-secondary font-label-md text-label-md px-6 md:px-8 py-3 rounded-lg hover:bg-surface-variant transition-colors duration-200 w-full md:w-auto">
                 Pelajari Lebih Lanjut
               </button>
             </div>
@@ -52,7 +93,7 @@ export default function TaxPage() {
       </header>
 
       {/* ── Main Content ── */}
-      <main className="flex-grow py-16 md:py-24 px-margin-mobile md:px-margin-desktop">
+      <main className="flex-grow py-10 md:py-24 px-margin-mobile md:px-margin-desktop">
         <div className="max-w-container-max mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
             
@@ -195,7 +236,7 @@ export default function TaxPage() {
 
       {/* ── Footer ── */}
       <footer className="bg-surface-container-high w-full border-t border-outline-variant mt-auto">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop py-8 md:py-12 max-w-container-max mx-auto">
           <div className="md:col-span-4">
             <div className="text-headline-md font-headline-md font-bold text-on-surface mb-4">
               LimoriaTech

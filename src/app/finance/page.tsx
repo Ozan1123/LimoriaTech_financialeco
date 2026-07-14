@@ -1,11 +1,52 @@
+"use client";
+
 import Link from "next/link";
 import { ScrollReveal, StaggerReveal } from "@/components/ui/scroll-reveal";
+import { useState } from "react";
 
 export default function FinancePage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleDrawer = () => setIsMenuOpen(!isMenuOpen);
+
   return (
     <>
-      {/* ── Navbar ── */}
-      <nav className="absolute top-0 left-0 right-0 z-50 bg-primary-container/95 nav-glass border-b border-white/10">
+      {/* ── Mobile TopAppBar & Drawer (Stitch styling) ── */}
+      <div className="md:hidden">
+        <nav className="fixed top-0 w-full z-50 bg-surface shadow-sm flex items-center justify-between px-margin-mobile h-16 w-full">
+          <div className="flex items-center gap-4">
+            <button className="text-primary active:scale-95 duration-200" onClick={toggleDrawer}>
+              <span className="material-symbols-outlined">menu</span>
+            </button>
+            <h1 className="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">LimoriaTech</h1>
+          </div>
+        </nav>
+
+        <div 
+          className={`fixed inset-0 bg-black/50 z-[55] transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 block' : 'opacity-0 hidden pointer-events-none'}`}
+          onClick={toggleDrawer}
+        ></div>
+        <aside 
+          className={`fixed inset-y-0 left-0 z-[60] flex flex-col h-full w-72 rounded-r-xl bg-surface-container-low shadow-lg transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
+        >
+          <div className="p-margin-mobile">
+            <h2 className="font-headline-md text-headline-md font-bold text-on-surface mb-6">Limoria Menu</h2>
+            <div className="flex flex-col gap-2">
+              <Link onClick={toggleDrawer} className="text-on-surface-variant px-4 py-3 font-label-md text-label-md flex items-center gap-3 hover:bg-surface-container-high transition-all" href="/tax">
+                <span className="material-symbols-outlined">account_balance</span> Tax
+              </Link>
+              <Link onClick={toggleDrawer} className="bg-secondary-container text-on-secondary-container rounded-full px-4 py-3 font-label-md text-label-md flex items-center gap-3" href="/finance">
+                <span className="material-symbols-outlined">payments</span> Finance
+              </Link>
+              <Link onClick={toggleDrawer} className="text-on-surface-variant px-4 py-3 font-label-md text-label-md flex items-center gap-3 hover:bg-surface-container-high transition-all" href="/it-systems">
+                <span className="material-symbols-outlined">memory</span> IT Systems
+              </Link>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      {/* ── Desktop Navbar ── */}
+      <nav className="hidden md:block absolute top-0 left-0 right-0 z-50 bg-primary-container/95 nav-glass border-b border-white/10">
         <div className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
           <Link href="/" className="text-headline-md font-headline-md font-bold text-white hover:opacity-90 transition-opacity">
             LimoriaTech
@@ -22,14 +63,14 @@ export default function FinancePage() {
       </nav>
 
       {/* ── Hero Section ── */}
-      <header className="bg-surface-container-low pt-28 md:pt-32 pb-12 md:pb-16 px-margin-mobile md:px-margin-desktop border-b border-outline-variant relative overflow-hidden">
+      <header className="bg-surface-container-low pt-8 md:pt-32 pb-8 md:pb-16 px-margin-mobile md:px-margin-desktop border-b border-outline-variant relative md:overflow-hidden mt-16 md:mt-0">
         <div className="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-gutter items-center relative z-10">
           <ScrollReveal animation="fade-right" duration={800}>
             <h1 className="text-headline-lg font-headline-lg text-on-surface mb-stack-md">Keuangan</h1>
             <p className="text-body-lg font-body-lg text-on-surface-variant mb-stack-lg max-w-xl">
               Layanan keuangan profesional untuk memastikan integritas, transparansi, dan efisiensi pelaporan keuangan perusahaan Anda. Kepercayaan dibangun melalui presisi.
             </p>
-            <a className="inline-flex items-center justify-center bg-primary-container text-on-primary-container font-label-md text-label-md px-6 py-3 rounded-lg hover:opacity-90 transition-all duration-200 active:scale-[0.98]" href="https://wa.me/6285214120235?text=Halo%20LimoriaTech%2C%20saya%20ingin%20berkonsultasi%20mengenai%20audit%2C%20pembukuan%2C%20atau%20tata%20kelola%20keuangan%20perusahaan%20kami." target="_blank" rel="noopener noreferrer">
+            <a className="inline-flex items-center justify-center bg-primary-container text-on-primary-container font-label-md text-label-md px-6 py-3 rounded-lg hover:opacity-90 transition-all duration-200 active:scale-[0.98] w-full md:w-auto" href="https://wa.me/6285214120235?text=Halo%20LimoriaTech%2C%20saya%20ingin%20berkonsultasi%20mengenai%20audit%2C%20pembukuan%2C%20atau%20tata%20kelola%20keuangan%20perusahaan%20kami." target="_blank" rel="noopener noreferrer">
               <span className="material-symbols-outlined mr-2" style={{ fontVariationSettings: "'FILL' 1" }}>chat</span>
               Konsultasi Keuangan via WhatsApp
             </a>
@@ -43,7 +84,7 @@ export default function FinancePage() {
       </header>
 
       {/* ── Main Content ── */}
-      <main className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-16">
+      <main className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-stack-xl">
           <StaggerReveal animation="fade-up" baseDelay={100} stagger={120} className="col-span-1 md:col-span-6">
             {/* Audit dan Review */}
@@ -153,13 +194,13 @@ export default function FinancePage() {
         </div>
 
         {/* ── CTA Section ── */}
-        <section className="mt-stack-xl bg-primary-container rounded-2xl overflow-hidden flex flex-col md:flex-row items-center">
-          <ScrollReveal animation="fade-right" duration={800} className="p-8 md:p-12 flex-1">
+        <section className="mt-8 md:mt-stack-xl bg-primary-container rounded-2xl overflow-hidden flex flex-col md:flex-row items-center">
+          <ScrollReveal animation="fade-right" duration={800} className="p-6 md:p-12 flex-1">
             <h2 className="text-headline-lg font-headline-lg text-white mb-stack-sm">Butuh Bantuan Langsung?</h2>
             <p className="text-body-lg font-body-lg text-white/90 mb-stack-lg">
               Tim ahli keuangan kami siap membantu mengoptimalkan performa bisnis Anda melalui audit dan pelaporan yang presisi.
             </p>
-            <a className="inline-flex items-center justify-center bg-white text-primary font-label-md text-label-md px-8 py-4 rounded-lg hover:bg-surface-container-lowest transition-all duration-200 shadow-sm active:scale-[0.98]" href="https://wa.me/6285214120235?text=Halo%20LimoriaTech%2C%20saya%20ingin%20berkonsultasi%20mengenai%20audit%2C%20pembukuan%2C%20atau%20tata%20kelola%20keuangan%20perusahaan%20kami." target="_blank" rel="noopener noreferrer">
+            <a className="inline-flex items-center justify-center bg-white text-primary font-label-md text-label-md px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-surface-container-lowest transition-all duration-200 shadow-sm active:scale-[0.98] w-full md:w-auto" href="https://wa.me/6285214120235?text=Halo%20LimoriaTech%2C%20saya%20ingin%20berkonsultasi%20mengenai%20audit%2C%20pembukuan%2C%20atau%20tata%20kelola%20keuangan%20perusahaan%20kami." target="_blank" rel="noopener noreferrer">
               <span className="material-symbols-outlined mr-2">chat</span>
               Hubungi Customer Service
             </a>
@@ -172,7 +213,7 @@ export default function FinancePage() {
 
       {/* ── Footer ── */}
       <footer className="bg-surface-container-high w-full border-t border-outline-variant mt-auto">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-desktop py-stack-xl max-w-container-max mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop py-8 md:py-stack-xl max-w-container-max mx-auto">
           <div className="md:col-span-4">
             <div className="text-headline-sm font-headline-sm font-bold text-on-surface mb-stack-sm">
               LimoriaTech

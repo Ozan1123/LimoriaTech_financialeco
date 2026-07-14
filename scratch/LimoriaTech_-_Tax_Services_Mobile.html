@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LimoriaTech | Professional Tax Services</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Sora & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;family=Sora:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "secondary-fixed-dim": "#acc8f2",
+                "surface": "#f8f9ff",
+                "on-primary": "#ffffff",
+                "tertiary": "#a23d34",
+                "on-primary-container": "#004231",
+                "tertiary-fixed": "#ffdad5",
+                "on-primary-fixed": "#002117",
+                "primary": "#006c51",
+                "primary-container": "#00b98e",
+                "error-container": "#ffdad6",
+                "on-tertiary-fixed": "#410002",
+                "error": "#ba1a1a",
+                "on-secondary-fixed-variant": "#2c486b",
+                "surface-container": "#e5eeff",
+                "tertiary-container": "#f97f72",
+                "surface-bright": "#f8f9ff",
+                "on-error-container": "#93000a",
+                "on-surface": "#0b1c30",
+                "on-primary-fixed-variant": "#00513d",
+                "inverse-primary": "#4bdeb0",
+                "surface-dim": "#cbdbf5",
+                "primary-fixed-dim": "#4bdeb0",
+                "secondary-container": "#b7d3fe",
+                "surface-tint": "#006c51",
+                "inverse-surface": "#213145",
+                "surface-variant": "#d3e4fe",
+                "on-tertiary": "#ffffff",
+                "inverse-on-surface": "#eaf1ff",
+                "surface-container-high": "#dce9ff",
+                "secondary-fixed": "#d3e3ff",
+                "outline": "#6c7a73",
+                "surface-container-lowest": "#ffffff",
+                "on-background": "#0b1c30",
+                "on-error": "#ffffff",
+                "surface-container-low": "#eff4ff",
+                "on-tertiary-fixed-variant": "#82261f",
+                "on-surface-variant": "#3c4a43",
+                "surface-container-highest": "#d3e4fe",
+                "secondary": "#446085",
+                "outline-variant": "#bbcac2",
+                "on-secondary-container": "#405b80",
+                "on-secondary": "#ffffff",
+                "on-secondary-fixed": "#001c39",
+                "background": "#f8f9ff",
+                "primary-fixed": "#6cfbcb",
+                "tertiary-fixed-dim": "#ffb4aa",
+                "on-tertiary-container": "#6f1814"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "margin-mobile": "20px",
+                "unit": "8px",
+                "margin-desktop": "40px",
+                "container-max": "1280px",
+                "gutter": "24px"
+            },
+            "fontFamily": {
+                "display-lg-mobile": ["Sora"],
+                "display-lg": ["Sora"],
+                "label-md": ["Plus Jakarta Sans"],
+                "body-sm": ["Plus Jakarta Sans"],
+                "headline-md": ["Sora"],
+                "headline-lg": ["Sora"],
+                "body-md": ["Plus Jakarta Sans"],
+                "label-sm": ["Plus Jakarta Sans"],
+                "headline-lg-mobile": ["Sora"],
+                "body-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+        }
+        .bento-card {
+            background: #ffffff;
+            box-shadow: 0px 4px 20px rgba(14, 46, 80, 0.04);
+            transition: all 0.3s ease;
+        }
+        .bento-card:hover {
+            box-shadow: 0px 12px 32px rgba(14, 46, 80, 0.08);
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-on-surface shadow-sm flex items-center justify-between px-margin-mobile h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="text-on-surface dark:text-surface active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface dark:text-surface">LimoriaTech</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-primary active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</button>
+</div>
+</header>
+<main class="pt-16 pb-20">
+<!-- Hero Section -->
+<section class="relative w-full h-[60vh] overflow-hidden flex items-end">
+<img class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLu8yQg5Sf1tSM3gIHAuEzNvPsMPprWwa0cJR6rnXwx45fnI_FtemWJTNVQZ-wLJXcMrCiIyayvhGcjv-XEhZjcjFnEL8U-cRRK8ELvki-_qmdlWZzp6RedbLuoXgjJUWOv0nbYoxLeo0aUalDkRe_R3gnmFgJyDuOjUm9ehcJ-o36ag-HJUUMZHme1wSJ_WIGNl6xdmJ8oyiDYPOflEe7OC5eP4o3snn_OEl1-uQ5ySixPpf6AiPFIpPntt"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-on-surface/20 to-transparent"></div>
+<div class="relative z-10 px-margin-mobile pb-10">
+<span class="inline-block bg-primary px-3 py-1 rounded-full text-white font-label-sm text-label-sm mb-4">FINANCIAL EXCELLENCE</span>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-white mb-2">Technical Tax Precision.</h2>
+<p class="font-body-md text-body-md text-surface-variant max-w-xs">Optimizing complex financial structures with modern tech-driven insights.</p>
+</div>
+</section>
+<!-- Services Bento Grid -->
+<section class="px-margin-mobile py-12">
+<div class="mb-8">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Our Services</h3>
+<div class="h-1 w-12 bg-primary rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<!-- Strategic Planning -->
+<div class="bento-card p-6 rounded-xl border-l-4 border-primary">
+<div class="flex items-center gap-4 mb-4">
+<div class="bg-primary-container p-3 rounded-lg">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="insights">insights</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface">strategic planning</h4>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                        Navigate the complexities of future tax obligations with data-backed forecasting and structured long-term asset allocation.
+                    </p>
+</div>
+<!-- Professional Assistance -->
+<div class="bento-card p-6 rounded-xl border-l-4 border-secondary">
+<div class="flex items-center gap-4 mb-4">
+<div class="bg-secondary-container p-3 rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="handshake">handshake</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface">professional assistance</h4>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                        Elite advisory services from certified experts who bridge the gap between regulatory requirements and operational efficiency.
+                    </p>
+</div>
+<!-- Risk Minimization -->
+<div class="bento-card p-6 rounded-xl border-l-4 border-tertiary">
+<div class="flex items-center gap-4 mb-4">
+<div class="bg-tertiary-container/20 p-3 rounded-lg">
+<span class="material-symbols-outlined text-tertiary" data-icon="shield">shield</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface">risk minimization</h4>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                        Identify and neutralize potential compliance vulnerabilities through automated audits and proactive mitigation strategies.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Consultation Banner -->
+<section class="mx-margin-mobile my-8 p-8 rounded-2xl bg-on-surface text-surface overflow-hidden relative">
+<!-- Decorative circle -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile mb-4">Ready to optimize?</h3>
+<p class="font-body-md text-body-md text-outline-variant mb-6">Schedule a 30-minute diagnostic session with our lead analysts.</p>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded-full w-full active:scale-95 transition-transform">
+                    Book Consultation
+                </button>
+</div>
+</section>
+<!-- CS / Customer Support Section -->
+<section class="px-margin-mobile py-12 bg-surface-container-low border-t border-surface-variant">
+<div class="flex flex-col items-center text-center">
+<div class="relative w-24 h-24 mb-6">
+<img class="w-full h-full object-cover rounded-full border-4 border-white shadow-lg" src="https://lh3.googleusercontent.com/aida/AP1WRLv4h4hJzGCgiNtfCTzM65ebf_MXw6ZdC_RpguvR7CdUi0-YUudseaZBzPg8EMkW5Q0l7sQ2IB1b_XT7D8rWavrYzdeDRwfHQIQ-hVAesEH2jeTiJdCpj42ScUhL3mSO11Z64XRqutndCql95Hf7ZTHwrsx7aNNsmcGhPSw-1zNCOg6Eh3vhPxFuVDJ8mdgtFh6z2kX8GkRrJM5-jxXzj6yf4jUaxEMo-rRiXmAQOztpBKpUhDWEHpas2vc"/>
+<div class="absolute bottom-0 right-0 w-6 h-6 bg-primary-container rounded-full border-2 border-white flex items-center justify-center">
+<div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Need immediate help?</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 max-w-xs mx-auto">
+                    Our technical support agents are available 24/7 to assist with your portal or compliance inquiries.
+                </p>
+<div class="flex gap-4 w-full">
+<button class="flex-1 flex items-center justify-center gap-2 border border-outline text-on-surface py-3 rounded-xl font-label-md text-label-md active:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="chat">chat</span> Chat
+                    </button>
+<button class="flex-1 flex items-center justify-center gap-2 border border-outline text-on-surface py-3 rounded-xl font-label-md text-label-md active:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="call">call</span> Call
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-on-surface dark:bg-surface-container-lowest text-primary-container dark:text-primary font-body-sm text-body-sm w-full mt-auto flex flex-col justify-between items-center px-margin-mobile py-8 gap-gutter">
+<div class="font-headline-md text-headline-md text-on-primary mb-4">LimoriaTech</div>
+<div class="grid grid-cols-2 gap-x-8 gap-y-4 text-center mb-6">
+<a class="text-surface-variant dark:text-on-surface-variant hover:text-primary-fixed-dim transition-colors" href="#">Privacy Policy</a>
+<a class="text-surface-variant dark:text-on-surface-variant hover:text-primary-fixed-dim transition-colors" href="#">Terms of Service</a>
+<a class="text-surface-variant dark:text-on-surface-variant hover:text-primary-fixed-dim transition-colors" href="#">Contact Us</a>
+<a class="text-surface-variant dark:text-on-surface-variant hover:text-primary-fixed-dim transition-colors" href="#">Security</a>
+</div>
+<p class="opacity-70">© 2024 LimoriaTech. All rights reserved.</p>
+</footer>
+<!-- Bottom Navigation Bar (Mobile Destination Rule) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-surface h-16 border-t border-surface-variant/30 flex items-center justify-around z-50 md:hidden">
+<a class="flex flex-col items-center text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-label-sm">Dashboard</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-[10px] font-label-sm">Investments</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="memory">memory</span>
+<span class="text-[10px] font-label-sm">Tech</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="text-[10px] font-label-sm">Support</span>
+</a>
+</nav>
+<!-- FAB (Contextual for Home/Dashboard) -->
+<button class="fixed bottom-20 right-4 w-14 h-14 bg-primary-container text-on-primary-container rounded-full shadow-lg flex items-center justify-center active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<script>
+        // Simple Micro-interaction for cards
+        document.querySelectorAll('.bento-card').forEach(card => {
+            card.addEventListener('touchstart', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('touchend', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>
